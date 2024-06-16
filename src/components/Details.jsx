@@ -19,4 +19,3 @@ const Details = () => {
 
 export default Details
 
-// {48:46 Video}
