@@ -6,4 +6,3 @@ const instance = axios.create({
 
 export default instance;
 
-// {52:10 Video}
