@@ -37,4 +37,3 @@ const Nav = () => {
 
 export default Nav
 
-// {1:18:58 Video}
