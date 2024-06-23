@@ -10,7 +10,7 @@ const Home = () => {
   const {search} = useLocation();
   const category = decodeURIComponent(search.split("=")[1]);
 
-  const [filteredProducts, setfilteredProducts] = useState(products)
+  const [filteredProducts, setfilteredProducts] = useState(null);
 
   const getproductscategory = async () => {
     try {
@@ -22,8 +22,9 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (category.length > 0) getproductscategory();
-  }, [category]);
+    if(!filteredProducts) setfilteredProducts(products)
+    if (category != "undefined") getproductscategory();
+  }, [category,products]);
 
   console.log(filteredProducts)
 
@@ -46,4 +47,4 @@ const Home = () => {
 
 export default Home
 
-// {1:29:56 Video}
+// {1:33:06 Video}
