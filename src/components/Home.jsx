@@ -22,7 +22,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if(!filteredProducts) setfilteredProducts(products)
+    if(!filteredProducts || category == "undefined") setfilteredProducts(products)
     if (category != "undefined") getproductscategory();
   }, [category,products]);
 
@@ -47,4 +47,4 @@ const Home = () => {
 
 export default Home
 
-// {1:33:06 Video}
+
