@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { ProductContext } from '../utils/Context';
 
 const Create = () => {
+    const [products, setproducts] = useContext(ProductContext)
     const [title, settitle] = useState("");
     const [image, setimage] = useState("");
     const [category, setcategory] = useState("");
@@ -11,7 +13,8 @@ const Create = () => {
         e.preventDefault();
         const product = {
             title,image,category,price,description
-        }
+        };
+        setproducts([...products, product])
     }
 
     return (
@@ -33,3 +36,6 @@ const Create = () => {
 }
 
 export default Create
+
+
+// {2:02:39 Video}
