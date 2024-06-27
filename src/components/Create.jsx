@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { ProductContext } from '../utils/Context';
+import { nanoid } from "nanoid";
 
 const Create = () => {
     const [products, setproducts] = useContext(ProductContext)
@@ -11,8 +12,12 @@ const Create = () => {
 
     const AddProductHandler = (e) => {
         e.preventDefault();
+        if(title.trim().length < 5 || image.trim().length < 5 || category.trim().length < 5 || price.trim().length < 1 || description.trim().length < 5 ){
+            alert("Each and every input must have atleat 4 characters");
+            return;
+        }
         const product = {
-            title,image,category,price,description
+            id:nanoid(),title,image,category,price,description
         };
         setproducts([...products, product])
     }
@@ -38,4 +43,4 @@ const Create = () => {
 export default Create
 
 
-// {2:02:39 Video}
+// {2:08:04 Video}
