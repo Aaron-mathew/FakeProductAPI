@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { ProductContext } from '../utils/Context';
 import { nanoid } from "nanoid";
+import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
+    const navigate = useNavigate()
     const [products, setproducts] = useContext(ProductContext)
     const [title, settitle] = useState("");
     const [image, setimage] = useState("");
@@ -20,6 +22,7 @@ const Create = () => {
             id:nanoid(),title,image,category,price,description
         };
         setproducts([...products, product])
+        navigate("/")
     }
 
     return (
@@ -43,4 +46,4 @@ const Create = () => {
 export default Create
 
 
-// {2:08:04 Video}
+// {2:16:36 Video}
