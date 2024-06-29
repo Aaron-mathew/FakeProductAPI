@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Nav from './Nav'
+import React, { useContext, useEffect, useState } from 'react';
+import Nav from './Nav';
 import { Link, useLocation } from 'react-router-dom'
 import { ProductContext } from '../utils/Context'
 import Loading from './Loading'
@@ -23,10 +23,13 @@ const Home = () => {
 
   useEffect(() => {
     if(!filteredProducts || category == "undefined") setfilteredProducts(products)
-    if (category != "undefined") getproductscategory();
+    if (category != "undefined") {
+      setfilteredProducts(products.filter(p => p.category == category));
+      // getproductscategory();
+    }
   }, [category,products]);
 
-  console.log(filteredProducts)
+  // console.log(filteredProducts)
 
   return products ? (
     <>
@@ -48,3 +51,4 @@ const Home = () => {
 export default Home
 
 
+// {2:23:30 Video}
